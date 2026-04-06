@@ -83,3 +83,35 @@ def encode_png_base64(image: np.ndarray) -> str:
     if not ok:
         raise RuntimeError("Failed to encode PNG image")
     return base64.b64encode(encoded.tobytes()).decode("ascii")
+
+
+def decode_uploaded_mask(data: bytes, filename: str, target_size: int = 256) -> np.ndarray:
+    """Decode an uploaded ground-truth mask file (NPZ, NPY, or image) into a
+    normalised float32 array of shape (target_size, target_size) with values in [0, 1]."""
+    name = filename.lower()
+    if name.endswith(".npy"):
+        raw = np.load(BytesIO(data))
+    elif name.endswith(".npz"):
+        with np.load(BytesIO(data)) as archive:
+            # Prefer 'mask' key, fall back to first key
+            key = "mask" if "mask" in archive else next(iter(archive.keys()))
+            raw = archive[key]
+    else:
+        raw = np.array(Image.open(BytesIO(data)).convert("L"))
+
+    raw = np.asarray(raw, dtype=np.float32)
+    if raw.ndim > 2:
+        raw = raw.mean(axis=-1)
+
+    # Binary masks stored as 0/1 → scale to [0,1]; already 0-255 → normalise
+    if raw.max() <= 1.0:
+        mask = raw  # already [0,1]
+    else:
+        mask = raw / 255.0
+
+    # Binarise (threshold at 0.5) then resize to match model output
+    mask = (mask >= 0.5).astype(np.float32)
+    if mask.shape != (target_size, target_size):
+        mask = cv2.resize(mask, (target_size, target_size), interpolation=cv2.INTER_NEAREST)
+
+    return mask

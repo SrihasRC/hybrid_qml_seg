@@ -109,6 +109,36 @@ export const api = {
 
   modelImageUrl: (modelId: string, filename: string) =>
     `${BASE_URL}/models/${modelId}/images/${encodeURIComponent(filename)}`,
+
+  // Decode an uploaded GT mask (NPZ/NPY/image) → base64 PNG
+  decodeMask: (file: File, signal?: AbortSignal) => {
+    const fd = new FormData();
+    fd.append("file", file);
+    return postMultipart<{
+      gt_mask_png_base64: string;
+      shape: number[];
+      nonzero_pixels: number;
+    }>("/utils/decode-mask", fd, signal);
+  },
+
+  // Demo samples
+  listDemoSamples: (signal?: AbortSignal) =>
+    get<{ items: { name: string; has_mask: boolean }[] }>(
+      "/demo-samples",
+      signal,
+    ),
+
+  getDemoImage: (filename: string, signal?: AbortSignal) =>
+    get<{ image_png_base64: string; name: string }>(
+      `/demo-samples/images/${encodeURIComponent(filename)}`,
+      signal,
+    ),
+
+  getDemoMask: (filename: string, signal?: AbortSignal) =>
+    get<{ mask_png_base64: string; name: string }>(
+      `/demo-samples/masks/${encodeURIComponent(filename)}`,
+      signal,
+    ),
 } as const;
 
 export { ApiError };

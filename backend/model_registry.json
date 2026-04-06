@@ -17,6 +17,17 @@
       "notes": "Current classical control baseline"
     },
     {
+      "id": "hybrid_v2",
+      "name": "Phase 2 Hybrid Quantum v2",
+      "model_type": "hybrid",
+      "checkpoint_path": "p2_v2/best_quantum_model.pth",
+      "metrics_path": "p2_v2/phase2_metrics.json",
+      "n_qubits": 8,
+      "n_layers": 3,
+      "q_device": "lightning.qubit",
+      "notes": "Initial angle-encoding quantum bottleneck experiment"
+    },
+    {
       "id": "hybrid_v3",
       "name": "Phase 2 Hybrid Quantum v3",
       "model_type": "hybrid",

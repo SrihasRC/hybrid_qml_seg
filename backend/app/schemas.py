@@ -31,6 +31,7 @@ class SlicePredictionResponse(BaseModel):
     input_shape: list[int]
     tumor_pixels: int
     tumor_ratio: float
+    input_png_base64: str = Field(description="Preprocessed input slice encoded as base64 PNG")
     mask_png_base64: str = Field(description="Binary mask encoded as base64 PNG")
     prob_png_base64: str = Field(description="Probability heatmap encoded as base64 PNG")
 

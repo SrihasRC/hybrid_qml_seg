@@ -135,7 +135,7 @@ export default function VisualizationsPage() {
         open={!!expanded}
         onOpenChange={(open) => !open && setExpanded(null)}
       >
-        <DialogContent className="max-w-[95vw] max-h-[92vh] w-auto overflow-y-auto">
+        <DialogContent className="max-w-[95vw] sm:max-w-[95vw] max-h-[92vh] w-auto overflow-y-auto">
           <DialogHeader>
             <DialogTitle>{expanded?.name}</DialogTitle>
           </DialogHeader>

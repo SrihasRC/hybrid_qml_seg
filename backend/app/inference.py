@@ -36,6 +36,7 @@ class InferenceService:
             "input_shape": list(image.shape),
             "tumor_pixels": int(mask.sum()),
             "tumor_ratio": float(mask.mean()),
+            "input_png_base64": encode_png_base64(image),
             "mask_png_base64": encode_png_base64(mask),
             "prob_png_base64": encode_png_base64(prob),
         }
