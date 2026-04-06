@@ -9,8 +9,8 @@ import {
   ScanLine,
   Cuboid,
   BarChart3,
-  Image,
-  BrainCircuit,
+  FlaskConical,
+  BookOpen,
 } from "lucide-react";
 
 import {
@@ -46,7 +46,17 @@ const navItems = [
     group: "Analysis",
     items: [
       { title: "Comparison", href: "/comparison", icon: BarChart3 },
-      { title: "Report Assets", href: "/assets", icon: Image },
+      {
+        title: "Visualizations",
+        href: "/visualizations",
+        icon: FlaskConical,
+      },
+    ],
+  },
+  {
+    group: "Reference",
+    items: [
+      { title: "Research", href: "/research", icon: BookOpen },
     ],
   },
 ];

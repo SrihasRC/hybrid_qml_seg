@@ -19,7 +19,9 @@ const routeLabels: Record<string, string> = {
   "/inference/slice": "Slice (2D)",
   "/inference/volume": "Volume (3D)",
   "/comparison": "Comparison",
+  "/visualizations": "Visualizations",
   "/assets": "Report Assets",
+  "/research": "Research",
 };
 
 export function AppHeader() {

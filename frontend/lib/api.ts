@@ -2,6 +2,7 @@ import type {
   ComparisonResponse,
   MetricsResponse,
   ModelCard,
+  ModelImagesResponse,
   ReportDiagramsResponse,
   ServiceHealth,
   SlicePredictionResponse,
@@ -102,6 +103,12 @@ export const api = {
 
   diagramUrl: (filename: string) =>
     `${BASE_URL}/assets/report-diagrams/${encodeURIComponent(filename)}`,
+
+  listModelImages: (modelId: string, signal?: AbortSignal) =>
+    get<ModelImagesResponse>(`/models/${modelId}/images`, signal),
+
+  modelImageUrl: (modelId: string, filename: string) =>
+    `${BASE_URL}/models/${modelId}/images/${encodeURIComponent(filename)}`,
 } as const;
 
 export { ApiError };

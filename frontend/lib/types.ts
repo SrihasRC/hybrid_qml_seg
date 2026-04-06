@@ -30,6 +30,7 @@ export interface SlicePredictionResponse {
   input_shape: number[];
   tumor_pixels: number;
   tumor_ratio: number;
+  input_png_base64: string;
   mask_png_base64: string;
   prob_png_base64: string;
 }
@@ -69,4 +70,17 @@ export interface ReportDiagram {
 
 export interface ReportDiagramsResponse {
   items: ReportDiagram[];
+}
+
+export interface ModelImage {
+  id: string;
+  name: string;
+  download_url: string;
+  size_bytes: number;
+}
+
+export interface ModelImagesResponse {
+  model_id: string;
+  folder: string;
+  items: ModelImage[];
 }
