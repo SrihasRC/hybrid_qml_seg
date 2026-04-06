@@ -1,0 +1,66 @@
+{
+  "models": [
+    {
+      "id": "classical_v2",
+      "name": "Phase 1B v2 Classical UNet++",
+      "model_type": "classical",
+      "checkpoint_path": "v2/best_model.pth",
+      "metrics_path": "v2/phase1b_v2_metrics.json",
+      "notes": "EfficientNetV2-S + UNet++ baseline from v2 run"
+    },
+    {
+      "id": "classical_v3",
+      "name": "Phase 1B v3 Classical UNet++",
+      "model_type": "classical",
+      "checkpoint_path": "v3/best_model.pth",
+      "metrics_path": "v3/phase1b_v3_metrics.json",
+      "notes": "Current classical control baseline"
+    },
+    {
+      "id": "hybrid_v3",
+      "name": "Phase 2 Hybrid Quantum v3",
+      "model_type": "hybrid",
+      "checkpoint_path": "p2_v3/best_quantum_model.pth",
+      "metrics_path": "p2_v3/phase2_metrics.json",
+      "comparison_csv_path": "p2_v3/phase2_comparison.csv",
+      "n_qubits": 8,
+      "n_layers": 3,
+      "q_device": "lightning.qubit",
+      "notes": "Angle-encoding quantum bottleneck"
+    },
+    {
+      "id": "hybrid_v4",
+      "name": "Phase 2 Hybrid Quantum v4",
+      "model_type": "hybrid",
+      "checkpoint_path": "p2_v4/best_quantum_model.pth",
+      "metrics_path": "p2_v4/phase2_metrics.json",
+      "comparison_csv_path": "p2_v4/phase2_comparison.csv",
+      "n_qubits": 8,
+      "n_layers": 3,
+      "q_device": "lightning.qubit",
+      "notes": "Improved protocol with classical-control metrics"
+    },
+    {
+      "id": "hybrid_final_runA",
+      "name": "Final Hybrid Run A (small-lesion focus)",
+      "model_type": "hybrid",
+      "checkpoint_path": "p2_vf_runA/best_quantum_model.pth",
+      "metrics_path": "p2_vf_runA/phase2_metrics.json",
+      "n_qubits": 8,
+      "n_layers": 3,
+      "q_device": "lightning.qubit",
+      "notes": "Controlled final run with lesion-aware sampling"
+    },
+    {
+      "id": "hybrid_final_runB",
+      "name": "Final Hybrid Run B (ablation)",
+      "model_type": "hybrid",
+      "checkpoint_path": "p2_vf_runB/best_quantum_model.pth",
+      "metrics_path": "p2_vf_runB/phase2_metrics.json",
+      "n_qubits": 8,
+      "n_layers": 3,
+      "q_device": "lightning.qubit",
+      "notes": "Controlled final run without lesion-aware sampling"
+    }
+  ]
+}
