@@ -1,0 +1,71 @@
+{
+  "phase": "2_hybrid_quantum_angle_encoding",
+  "encoder": "tu-tf_efficientnetv2_s.in21k_ft_in1k",
+  "encoding": "angle",
+  "n_qubits": 8,
+  "n_layers": 3,
+  "best_epoch": 12,
+  "selection_metric": "tumor_slice_dsc_mean",
+  "dsc_mean": 0.6426488757133484,
+  "dsc_std": 0.37429681420326233,
+  "hd95_mean": 11.447860717773438,
+  "n_samples": 2331,
+  "classical_baseline": 0.645,
+  "delta": -0.002351124286651629,
+  "q_weight_norm_final": 0.18111659586429596,
+  "train_subsample": 0.7,
+  "size_bins": {
+    "q25_area": 102.5,
+    "q75_area": 790.0,
+    "small": {
+      "n": 583,
+      "dsc_mean": 0.270344078540802,
+      "dsc_std": 0.35051584243774414,
+      "hd95_mean": 20.058557510375977
+    },
+    "mid": {
+      "n": 1165,
+      "dsc_mean": 0.7088654637336731,
+      "dsc_std": 0.32098135352134705,
+      "hd95_mean": 10.40254020690918
+    },
+    "large": {
+      "n": 583,
+      "dsc_mean": 0.8826341032981873,
+      "dsc_std": 0.16261610388755798,
+      "hd95_mean": 8.340742111206055
+    }
+  },
+  "classical_control": {
+    "phase": "2_classical_control_eval",
+    "encoder": "tu-tf_efficientnetv2_s.in21k_ft_in1k",
+    "source_checkpoint": "/kaggle/input/datasets/srihasrc/brats-classical-model/best_model.pth",
+    "dsc_mean": 0.6450344920158386,
+    "dsc_std": 0.36922168731689453,
+    "hd95_mean": 12.42240047454834,
+    "n_samples": 2331,
+    "size_bins": {
+      "q25_area": 102.5,
+      "q75_area": 790.0,
+      "small": {
+        "n": 583,
+        "dsc_mean": 0.2736970782279968,
+        "dsc_std": 0.34829968214035034,
+        "hd95_mean": 21.315147399902344
+      },
+      "mid": {
+        "n": 1165,
+        "dsc_mean": 0.7106069922447205,
+        "dsc_std": 0.31306707859039307,
+        "hd95_mean": 11.446917533874512
+      },
+      "large": {
+        "n": 583,
+        "dsc_mean": 0.8853394389152527,
+        "dsc_std": 0.15384474396705627,
+        "hd95_mean": 8.901220321655273
+      }
+    }
+  },
+  "delta_vs_classical_control": -0.0023856163024902344
+}

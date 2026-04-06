@@ -1,0 +1,12 @@
+{
+  "phase": "1B_v3_effnetv2s_unetpp_imagenet",
+  "encoder": "tu-tf_efficientnetv2_s.in21k_ft_in1k",
+  "encoder_weights": "imagenet",
+  "best_epoch": 35,
+  "dsc_standard": 0.6450347304344177,
+  "dsc_std": 0.36922183632850647,
+  "dsc_tta": 0.6443858714013986,
+  "hd95_mean": 0.0,
+  "n_samples": 2331,
+  "notes": "Tumor-only DSC metric. imagenet pretrained encoder. 15% healthy slices in train."
+}

@@ -1,0 +1,10 @@
+{
+  "phase": "1B_v2_efficientnetv2s_unetpp",
+  "encoder": "tu-tf_efficientnetv2_s.in21k_ft_in1k",
+  "best_epoch": 27,
+  "dsc_standard": 0.6446083188056946,
+  "dsc_std": 0.37003180384635925,
+  "dsc_tta": 0.6910294137965746,
+  "hd95_mean": 0.0,
+  "n_samples": 2331
+}

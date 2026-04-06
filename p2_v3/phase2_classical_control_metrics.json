@@ -1,0 +1,31 @@
+{
+  "phase": "2_classical_control_eval",
+  "encoder": "tu-tf_efficientnetv2_s.in21k_ft_in1k",
+  "source_checkpoint": "/kaggle/input/datasets/srihasrc/brats-classical-model/best_model.pth",
+  "dsc_mean": 0.6450344920158386,
+  "dsc_std": 0.36922168731689453,
+  "hd95_mean": 12.42240047454834,
+  "n_samples": 2331,
+  "size_bins": {
+    "q25_area": 102.5,
+    "q75_area": 790.0,
+    "small": {
+      "n": 583,
+      "dsc_mean": 0.2736970782279968,
+      "dsc_std": 0.34829968214035034,
+      "hd95_mean": 21.315147399902344
+    },
+    "mid": {
+      "n": 1165,
+      "dsc_mean": 0.7106069922447205,
+      "dsc_std": 0.31306707859039307,
+      "hd95_mean": 11.446917533874512
+    },
+    "large": {
+      "n": 583,
+      "dsc_mean": 0.8853394389152527,
+      "dsc_std": 0.15384474396705627,
+      "hd95_mean": 8.901220321655273
+    }
+  }
+}
